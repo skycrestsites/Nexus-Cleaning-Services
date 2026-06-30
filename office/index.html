@@ -22,7 +22,7 @@
 
 <header class="relative flex items-center justify-between border-b border-stone-200 px-6 md:px-16 py-4 bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
   <a href="../"><img src="../images/logo.png" alt="Nexus Cleaning Services" class="h-16 w-auto block"/></a>
-  <div class="flex flex-1 justify-end gap-8 items-center">
+  <div class="flex-1 flex justify-end items-center gap-4">
     <nav class="hidden md:flex items-center gap-8">
       <a class="text-slate-500 text-xs uppercase tracking-widest font-semibold hover:text-primary transition-colors" href="../">Home</a>
       <div class="nav-dropdown-trigger relative">
@@ -186,7 +186,7 @@
 document.getElementById('mobile-menu-btn').onclick=function(){document.getElementById('mobile-menu').classList.toggle('hidden');};
 document.getElementById('mobile-services-btn').onclick=function(){var s=document.getElementById('mobile-services-list');var a=document.getElementById('mobile-services-arrow');s.classList.toggle('hidden');a.textContent=s.classList.contains('hidden')?'expand_more':'expand_less';};
 
-// Desktop nav dropdown — delay prevents menu closing on gap between button and list
+// Desktop nav dropdown ï¿½ delay prevents menu closing on gap between button and list
 (function() {
   var t; var trigger = document.querySelector('.nav-dropdown-trigger'); var dd = trigger ? trigger.querySelector('.nav-dropdown') : null;
   if (!trigger || !dd) return;
