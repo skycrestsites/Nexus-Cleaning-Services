@@ -1,0 +1,11 @@
+# Ignore the template source files (keep only built site)
+style 3/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.cursor/
+*.log
