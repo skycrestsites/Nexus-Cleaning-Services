@@ -32,7 +32,7 @@ tailwind.config = {
 </script>
 <style>
 .nav-dropdown { display: none; }
-.nav-dropdown-trigger:hover .nav-dropdown { display: block; }
+
 </style>
 </head>
 <body class="bg-background-light font-sans text-slate-900 selection:bg-accent/40">
@@ -397,7 +397,14 @@ document.getElementById('mobile-services-btn').onclick = function() {
   s.classList.toggle('hidden');
   a.textContent = s.classList.contains('hidden') ? 'expand_more' : 'expand_less';
 };
-</script>
+
+// Desktop nav dropdown — delay prevents menu closing on gap between button and list
+(function() {
+  var t; var trigger = document.querySelector('.nav-dropdown-trigger'); var dd = trigger ? trigger.querySelector('.nav-dropdown') : null;
+  if (!trigger || !dd) return;
+  trigger.addEventListener('mouseenter', function() { clearTimeout(t); dd.style.display = 'block'; });
+  trigger.addEventListener('mouseleave', function() { t = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+})();</script>
 </div>
 </body>
 </html>

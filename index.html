@@ -39,7 +39,7 @@ tailwind.config = {
 </script>
 <style>
 .nav-dropdown { display: none; }
-.nav-dropdown-trigger:hover .nav-dropdown { display: block; }
+
 </style>
 <script type="application/ld+json">
 {
@@ -624,7 +624,14 @@ tailwind.config = {
       menu.classList.add('hidden');
     }
   });
-</script>
+
+// Desktop nav dropdown — delay prevents menu closing on gap between button and list
+(function() {
+  var t; var trigger = document.querySelector('.nav-dropdown-trigger'); var dd = trigger ? trigger.querySelector('.nav-dropdown') : null;
+  if (!trigger || !dd) return;
+  trigger.addEventListener('mouseenter', function() { clearTimeout(t); dd.style.display = 'block'; });
+  trigger.addEventListener('mouseleave', function() { t = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+})();</script>
 
 </div>
 </body>

@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
 <script>tailwind.config={theme:{extend:{colors:{"primary":"#3a97c2","accent":"#8ae1f2","primary-dark":"#2d7a9e","background-light":"#f8fafc"},fontFamily:{"sans":["Inter","sans-serif"],"serif":["Playfair Display","serif"]},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"9999px"}}}}</script>
-<style>.nav-dropdown{display:none}.nav-dropdown-trigger:hover .nav-dropdown{display:block}</style>
+<style>.nav-dropdown{display:none}</style>
 </head>
 <body class="bg-background-light font-sans text-slate-900 selection:bg-accent/40">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
@@ -184,7 +184,14 @@
 <script>
 document.getElementById('mobile-menu-btn').onclick=function(){document.getElementById('mobile-menu').classList.toggle('hidden');};
 document.getElementById('mobile-services-btn').onclick=function(){var s=document.getElementById('mobile-services-list');var a=document.getElementById('mobile-services-arrow');s.classList.toggle('hidden');a.textContent=s.classList.contains('hidden')?'expand_more':'expand_less';};
-</script>
+
+// Desktop nav dropdown — delay prevents menu closing on gap between button and list
+(function() {
+  var t; var trigger = document.querySelector('.nav-dropdown-trigger'); var dd = trigger ? trigger.querySelector('.nav-dropdown') : null;
+  if (!trigger || !dd) return;
+  trigger.addEventListener('mouseenter', function() { clearTimeout(t); dd.style.display = 'block'; });
+  trigger.addEventListener('mouseleave', function() { t = setTimeout(function() { dd.style.display = 'none'; }, 200); });
+})();</script>
 </div>
 </body>
 </html>
